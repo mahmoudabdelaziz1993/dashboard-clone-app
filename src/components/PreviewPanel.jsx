@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { RiMenu3Line } from "react-icons/ri";
 import Avatar from "./Avatar";
 import Search from "./Search.jsx";
@@ -6,7 +6,36 @@ import { FaFilter } from "react-icons/fa";
 import SearchV2 from "./SearchV2";
 import ItemPreview from "./ItemPreview";
 import ItemFeature from './ItemFeature';
+
+
 const PreviewPanel = () => {
+  const [Messages, setMessages] = useState(null);
+
+  const [SelectedMessage, setSelectedMessage] = useState(null);
+
+  useEffect(() => {
+    const FetchMessages = async () => {
+      const res = await fetch("https://62df172a9c47ff309e8159dc.mockapi.io/messages")
+      let data = await res.json()
+      data && setMessages(data)
+    }
+    FetchMessages()
+    // return () => {
+    //   second
+    // }
+  }, [])
+
+  useEffect(() => {
+    Messages && setSelectedMessage(Messages[0])
+
+  }, [Messages])
+
+
+
+
+
+
+
   return (
     <div className="w-full h-full px-1 pt-3 md:px-6 rounded-t-xl artboard bg-base-300">
       <div className="flex items-center justify-between">
@@ -44,8 +73,8 @@ const PreviewPanel = () => {
           </div>
 
           <div className="flex flex-col flex-grow gap-2 p-3 overflow-y-auto">
-            {new Array(25).fill({ name: null }).map((item, i) => (
-              <ItemFeature key={i} />
+            {Messages && Messages.map((item, i) => (
+              <ItemFeature key={i} data={item} setSelectedMessage={setSelectedMessage} />
             ))}
           </div>
         </div>
@@ -53,7 +82,7 @@ const PreviewPanel = () => {
           <div className="flex flex-row-reverse">
             <SearchV2 />
           </div>
-          <ItemPreview />
+          {SelectedMessage && <ItemPreview data={SelectedMessage} />}
         </div>
       </div>
     </div>

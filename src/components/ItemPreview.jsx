@@ -5,19 +5,18 @@ import { MdReplay } from 'react-icons/md'
 import { FaCheck } from "react-icons/fa";
 
 
-const ItemPreview = () => {
+const ItemPreview = ({ data }) => {
     return (
         <div className="flex flex-col flex-grow m-2 rounded-md bg-base-100">
             <div className="flex flex-wrap justify-between w-full px-6 py-3">
                 <div className="flex flex-col ">
                     <h3 className="min-w-[200px] text-2xl font-semibold ">
-                        {" "}
-                        facilis laborum est ratione possimus?
+                        {data?.title}
                     </h3>
                     <div className="inline-flex gap-2"></div>
                     <p className="text-base-content">
-                        orderId : <strong className="text-yellow-600">#asjkhdjsahdj</strong> {"   "}
-                        facilis laborum est ratione possimus?
+                        orderId : <strong className="text-yellow-600">{data?.id}</strong> {"   "}
+                        {data?.createdAt}
                     </p>
                 </div>
 
@@ -28,8 +27,7 @@ const ItemPreview = () => {
             <div className="divider"></div>
             <div className="flex-grow">
                 <p className="w-full p-3 text-2xl font-semibold">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit, repellendus quod sapiente reiciendis soluta necessitatibus laudantium, fuga provident corporis, ex accusantium voluptate sequi nisi! Quibusdam nulla impedit eum cupiditate molestias?
-                </p>
+                    {data?.description}                </p>
             </div>
             <div className="divider"></div>
             <div className="flex flex-wrap justify-center gap-3 p-3">
