@@ -35,10 +35,18 @@ export const Nav = () => {
               </a>
             </li>
             <li>
-              <a href="!#">Submenu 2</a>
+              <a href="!#">
+                {" "}
+                <FaSlackHash />
+                Submenu 2
+              </a>
             </li>
             <li>
-              <a href="!#">Submenu 3</a>
+              <a href="!#">
+                {" "}
+                <FaSlackHash />
+                Submenu 3
+              </a>
             </li>
           </ul>
         </li>

@@ -1,9 +1,10 @@
 import React from "react";
 import { RiMenu3Line } from "react-icons/ri";
 import Avatar from "./Avatar";
-import Search from "./Search";
+import Search from "./Search.jsx";
 import { FaFilter } from "react-icons/fa";
-
+import SearchV2 from "./SearchV2";
+import ItemPreview from "./ItemPreview";
 const PreviewPanel = () => {
   return (
     <div className="w-full h-full px-1 pt-3 md:px-6 rounded-t-xl artboard bg-base-300">
@@ -13,7 +14,7 @@ const PreviewPanel = () => {
         <Avatar />
       </div>
       <div className="flex w-full h-[90%] gap-3 p-3">
-        <div className="flex flex-col w-[25%]  rounded-lg p-2">
+        <div className="flex flex-col p-2 rounded-lg">
           <div className="flex justify-between w-full">
             <select
               defaultValue={1}
@@ -40,6 +41,7 @@ const PreviewPanel = () => {
               </ul>
             </div>
           </div>
+
           <div className="flex flex-col flex-grow gap-2 overflow-y-auto">
             {new Array(25).fill({ name: null }).map((item, i) => (
               <div key={i} className="rounded-md bg-base-100 hover:bg-base-200">
@@ -48,7 +50,12 @@ const PreviewPanel = () => {
             ))}
           </div>
         </div>
-        <div className="flex-grow p-2 rounded-lg ">2</div>
+        <div className="flex flex-col flex-grow p-2 rounded-lg">
+          <div className="flex flex-row-reverse">
+            <SearchV2 />
+          </div>
+          <ItemPreview />
+        </div>
       </div>
     </div>
   );
