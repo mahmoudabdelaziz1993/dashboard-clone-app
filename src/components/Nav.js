@@ -20,7 +20,7 @@ export const Nav = () => {
             <span className="hidden md:flex"> Item 2</span>
           </a>
         </li>
-        <li tabindex="0">
+        <li tabIndex={0}>
           <span>
             {" "}
             <FaSlackHash />
