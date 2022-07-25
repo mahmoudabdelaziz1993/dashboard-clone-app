@@ -5,6 +5,7 @@ import Search from "./Search.jsx";
 import { FaFilter } from "react-icons/fa";
 import SearchV2 from "./SearchV2";
 import ItemPreview from "./ItemPreview";
+import ItemFeature from './ItemFeature';
 const PreviewPanel = () => {
   return (
     <div className="w-full h-full px-1 pt-3 md:px-6 rounded-t-xl artboard bg-base-300">
@@ -42,11 +43,9 @@ const PreviewPanel = () => {
             </div>
           </div>
 
-          <div className="flex flex-col flex-grow gap-2 overflow-y-auto">
+          <div className="flex flex-col flex-grow gap-2 p-3 overflow-y-auto">
             {new Array(25).fill({ name: null }).map((item, i) => (
-              <div key={i} className="rounded-md bg-base-100 hover:bg-base-200">
-                {i}
-              </div>
+              <ItemFeature key={i} />
             ))}
           </div>
         </div>
