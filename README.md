@@ -1,6 +1,25 @@
-# Getting Started with Create React App
+# Dashboard Tech-task
 
+Dashboard Clone App
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## ScreenShots & features
+
+### Ligh Mode
+
+![Alt text](/screenshot/Screenshot1light.png "Optional Title")
+
+### Dark Mode
+
+![Alt text](/screenshot/Screenshot1.png "Optional Title")
+
+### Search by Id
+
+![Alt text](/screenshot/Screenshot3.png "Optional Title")
+
+### Delete By Id
+
+![Alt text](/screenshot/Screenshot2.png.png "Optional Title")
 
 ## Available Scripts
 
