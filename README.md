@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## ScreenShots & features
 
-### Ligh Mode
+### Ligh Mode on user Theme preferance
 
 ![Alt text](/screenshot/Screenshot1light.png "Optional Title")
 
@@ -19,7 +19,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Delete By Id
 
-![Alt text](/screenshot/Screenshot2.png.png "Optional Title")
+![Alt text](/screenshot/Screenshot2.png "Optional Title")
 
 ## Available Scripts
 
