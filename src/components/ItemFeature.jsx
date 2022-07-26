@@ -16,8 +16,8 @@ const ItemFeature = ({ data, setSelectedMessage }) => {
                 <div className="badge">
                     <GiIceCube />
                 </div>
-                <div className="">
-                    <h3 className="text-sm text-base-content ">OrederID : {data.hash}</h3>
+                <div className="flex flex-col items-start text-start">
+                    <h3 className="text-sm text-base-content ">OrederID : {data?.id}</h3>
                     <h3 className="text-sm font-bold">Please Confirm New expected time!</h3>
                     <h3 className="text-sm text-base-content">Type</h3>
                     <h3 className="text-sm font-bold">{data.type}</h3>
