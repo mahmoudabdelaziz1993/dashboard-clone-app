@@ -39,8 +39,8 @@ const ItemPreview = ({ data }) => {
             <div className="divider"></div>
             <div className="flex flex-wrap justify-center gap-3 p-3">
                 <button onClick={() => del(data?.id)} className="gap-2 btn btn-outline btn-error "><AiOutlineClose />Reject</button>
-                <button className="gap-2 btn btn-primary"><MdReplay />Resubmit</button>
-                <button className="gap-2 btn btn-accent"> <FaCheck />accept</button>
+                <button className="gap-2 cursor-not-allowed btn btn-primary"><MdReplay />Resubmit</button>
+                <button className="gap-2 cursor-not-allowed btn btn-accent"> <FaCheck />accept</button>
             </div>
 
 
