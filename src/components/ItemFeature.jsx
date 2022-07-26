@@ -1,6 +1,6 @@
 import React from 'react'
 import { MdAlarm } from 'react-icons/md'
-import { GiIceCube } from 'react-icons/gi'
+import { GiIceCube, GiLaserWarning } from 'react-icons/gi'
 const ItemFeature = ({ data, setSelectedMessage }) => {
     return (
         <button onClick={() => setSelectedMessage(data)} className=" rounded-md bg-base-100 hover:bg-base-200 min-w-[300px] p-3 cursor-pointer ">
@@ -8,8 +8,7 @@ const ItemFeature = ({ data, setSelectedMessage }) => {
                 <h3 className="text-lg text-base-content max-w-[200px] truncate">From : <span className='text-xl font-bold '>
                     {data?.from}
                 </span></h3>
-                <MdAlarm />
-            </div>
+                {data.state ? <MdAlarm /> : <GiLaserWarning className='text-warning' />}            </div>
             <p className='text-base '>{data?.createdAt}
             </p>
             <div className="divider"></div>

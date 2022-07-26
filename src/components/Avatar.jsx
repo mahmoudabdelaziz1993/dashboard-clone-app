@@ -2,7 +2,7 @@ import React from "react";
 
 const Avatar = () => {
   return (
-    <div className="inline-flex gap-2 ">
+    <div className="inline-flex gap-2 cursor-not-allowed">
       <div className="avatar online ">
         <div className="w-8 rounded-full">
           <img src="https://placeimg.com/192/192/people" alt="!#" />

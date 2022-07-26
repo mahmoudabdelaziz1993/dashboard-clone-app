@@ -6,29 +6,40 @@ import { FaFilter } from "react-icons/fa";
 import SearchV2 from "./SearchV2";
 import ItemPreview from "./ItemPreview";
 import ItemFeature from './ItemFeature';
+import { getMessageById } from "../utils/ApiCalls";
+import { getAllMessages } from './../utils/ApiCalls';
 
 
 const PreviewPanel = () => {
   const [Messages, setMessages] = useState(null);
-
+  const [Query, setQuery] = useState("");
   const [SelectedMessage, setSelectedMessage] = useState(null);
+  const fetchMessage = async (id) => {
+    // const res = await fetch(`https://62df172a9c47ff309e8159dc.mockapi.io/messages/${id}`)
+    let data = await getMessageById(id)
+    data !== "Something went wrong while parsing response JSON" ? setMessages([data]) : setMessages([])
+  }
 
+  const FetchMessages = async () => {
+    let data = await getAllMessages()
+    data && setMessages(data)
+  }
   useEffect(() => {
-    const FetchMessages = async () => {
-      const res = await fetch("https://62df172a9c47ff309e8159dc.mockapi.io/messages")
-      let data = await res.json()
-      data && setMessages(data)
-    }
     FetchMessages()
-    // return () => {
-    //   second
-    // }
   }, [])
 
   useEffect(() => {
     Messages && setSelectedMessage(Messages[0])
-
   }, [Messages])
+
+  useEffect(() => {
+    if (Query.length > 0) {
+      fetchMessage(Query)
+    } else if (Query === "") {
+      FetchMessages()
+    }
+  }, [Query])
+
 
 
 
@@ -73,14 +84,14 @@ const PreviewPanel = () => {
           </div>
 
           <div className="flex flex-col flex-grow gap-2 p-3 overflow-y-auto">
-            {Messages && Messages.map((item, i) => (
+            {Messages && Messages?.map((item, i) => (
               <ItemFeature key={i} data={item} setSelectedMessage={setSelectedMessage} />
             ))}
           </div>
         </div>
         <div className="flex flex-col flex-grow p-2 rounded-lg">
           <div className="flex flex-row-reverse">
-            <SearchV2 />
+            <SearchV2 Query={Query} setQuery={setQuery} />
           </div>
           {SelectedMessage && <ItemPreview data={SelectedMessage} />}
         </div>

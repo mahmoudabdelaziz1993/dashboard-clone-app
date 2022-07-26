@@ -8,7 +8,8 @@ const Search = () => {
       <input
         type="text"
         placeholder="Type Here"
-        className="w-full max-w-xs h-7 input input-ghost"
+        className="w-full max-w-xs h-7 input input-ghost "
+        disabled
       />
     </div>
   );

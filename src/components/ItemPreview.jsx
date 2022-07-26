@@ -3,11 +3,18 @@ import { BsFillEyeFill } from "react-icons/bs";
 import { AiOutlineClose } from 'react-icons/ai'
 import { MdReplay } from 'react-icons/md'
 import { FaCheck } from "react-icons/fa";
+import { deleteMessage } from './../utils/ApiCalls';
 
 
 const ItemPreview = ({ data }) => {
+    const del = async (id) => {
+        alert(" This Action cause page Reload")
+        let data = await deleteMessage(id)
+        console.log(data)
+        window?.location.reload()
+    }
     return (
-        <div className="flex flex-col flex-grow m-2 rounded-md bg-base-100">
+        <div className="flex flex-col flex-grow m-2 overflow-y-auto rounded-md bg-base-100">
             <div className="flex flex-wrap justify-between w-full px-6 py-3">
                 <div className="flex flex-col ">
                     <h3 className="min-w-[200px] text-2xl font-semibold ">
@@ -31,7 +38,7 @@ const ItemPreview = ({ data }) => {
             </div>
             <div className="divider"></div>
             <div className="flex flex-wrap justify-center gap-3 p-3">
-                <button className="gap-2 btn btn-outline btn-error "><AiOutlineClose />Reject</button>
+                <button onClick={() => del(data?.id)} className="gap-2 btn btn-outline btn-error "><AiOutlineClose />Reject</button>
                 <button className="gap-2 btn btn-primary"><MdReplay />Resubmit</button>
                 <button className="gap-2 btn btn-accent"> <FaCheck />accept</button>
             </div>
